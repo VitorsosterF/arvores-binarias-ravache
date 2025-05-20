@@ -12,6 +12,11 @@ public class Arvore
         return contarNosRecursivo(raiz);
     };
 
+    public void preOrdem()
+    {
+        preOrdemRecursivo(raiz);
+    }
+
     private int contarNosRecursivo(No no)
     {
         if (no == null)
@@ -20,6 +25,19 @@ public class Arvore
         }
 
         return 1 + contarNosRecursivo(no.esquerdo) + contarNosRecursivo(no.direito);
+    }
+
+    private void preOrdemRecursivo(No no)
+    {
+        if (no == null)
+        {
+            return;
+        }
+
+        System.out.println(no);
+        preOrdemRecursivo(no.esquerdo);
+        preOrdemRecursivo(no.direito);
+        }
     }
 
 

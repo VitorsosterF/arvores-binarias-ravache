@@ -8,16 +8,4 @@ public class No
         valor = item;
         esquerdo = direito = null;
     }
-
-    public int contarNos(No raiz)
-    {
-        if (raiz == null)
-        {
-            return 0;
-        }
-
-        return 1 + contarNos(esquerdo) + contarNos(direito);
-    }
-
-
 }
