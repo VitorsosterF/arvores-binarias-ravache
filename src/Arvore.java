@@ -37,8 +37,22 @@ public class Arvore
         System.out.println(no);
         preOrdemRecursivo(no.esquerdo);
         preOrdemRecursivo(no.direito);
-        }
+
     }
+
+    private void emOrdemRecursivo (No no)
+    {
+        if (no == null)
+        {
+            return;
+        }
+
+        preOrdemRecursivo(no.esquerdo);
+        System.out.println(no);
+        preOrdemRecursivo(no.direito);
+    }
+
+
 
 
 
