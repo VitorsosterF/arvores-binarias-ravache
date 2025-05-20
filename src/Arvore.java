@@ -52,8 +52,16 @@ public class Arvore
         preOrdemRecursivo(no.direito);
     }
 
+    private void posOrdemRecursivo (No no)
+    {
+        if (no == null)
+        {
+            return;
+        }
 
-
-
+        posOrdemRecursivo(no.esquerdo);
+        posOrdemRecursivo(no.direito);
+        System.out.println(no);
+    }
 
 }
