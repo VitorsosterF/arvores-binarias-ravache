@@ -1,14 +1,23 @@
-import org.w3c.dom.Node;
-
 public class No
 {
     int valor;
-    Node esquerdo, direito;
+    No esquerdo, direito;
 
     public No(int item)
     {
         valor = item;
         esquerdo = direito = null;
     }
+
+    public int contarNos(No raiz)
+    {
+        if (raiz == null)
+        {
+            return 0;
+        }
+
+        return 1 + contarNos(esquerdo) + contarNos(direito);
+    }
+
 
 }
