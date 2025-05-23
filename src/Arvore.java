@@ -5,63 +5,87 @@ public class Arvore
     public Arvore()
     {
         raiz = null;
-    }
-
-    public int contarNos()
-    {
-        return contarNosRecursivo(raiz);
     };
 
-    public void preOrdem()
+    private int altura(No no)
     {
-        preOrdemRecursivo(raiz);
+        if (no == null) return 0;
+
+        return 1 + Math.max(altura(no.esquerdo), altura(no.direito));
     }
 
-    private int contarNosRecursivo(No no)
+    public int contarNosRecursivo(No no)
     {
-        if (no == null)
-        {
-            return 0;
-        }
+        if (no == null) return 0;
 
         return 1 + contarNosRecursivo(no.esquerdo) + contarNosRecursivo(no.direito);
     }
 
-    private void preOrdemRecursivo(No no)
+    public void preOrdemRecursivo(No no)
     {
-        if (no == null)
-        {
-            return;
-        }
+        if (no == null) return;
 
         System.out.println(no);
         preOrdemRecursivo(no.esquerdo);
         preOrdemRecursivo(no.direito);
 
-    }
+    };
 
-    private void emOrdemRecursivo (No no)
+    public void preOrdemNaoRecursivo (No no)
     {
-        if (no == null)
+        if (no == null) return;
+
+        while (no.esquerdo != null)
         {
-            return;
-        }
+            System.out.println(no);
+        };
+    };
+
+    public void emOrdemRecursivo (No no)
+    {
+        if (no == null) return;
 
         preOrdemRecursivo(no.esquerdo);
         System.out.println(no);
         preOrdemRecursivo(no.direito);
-    }
+    };
 
-    private void posOrdemRecursivo (No no)
+    public void posOrdemRecursivo (No no)
     {
-        if (no == null)
-        {
-            return;
-        }
+        if (no == null) return;
 
         posOrdemRecursivo(no.esquerdo);
         posOrdemRecursivo(no.direito);
         System.out.println(no);
+    };
+
+    public void emNivelRecursivo ()
+    {
+        int altura = altura(raiz);
+
+        for (int i = 0; i < altura; i++)
+        {
+            percorrerNivel(raiz, i);
+        }
+
+
+
+    };
+
+    private void percorrerNivel(No no, int nivel)
+    {
+        if (no == null) return;
+
+        if (nivel == 0)
+        {
+            System.out.println(no.valor + " ");
+        }
+        else
+        {
+            percorrerNivel(no.esquerdo, nivel - 1);
+            percorrerNivel(no.direito, nivel - 1);
+        }
     }
 
+    
 }
