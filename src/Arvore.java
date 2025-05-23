@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class Arvore
 {
     No raiz;
@@ -25,20 +27,29 @@ public class Arvore
     {
         if (no == null) return;
 
-        System.out.println(no);
+        System.out.println(no.valor);
         preOrdemRecursivo(no.esquerdo);
         preOrdemRecursivo(no.direito);
 
     };
 
-    public void preOrdemNaoRecursivo (No no)
+    public void preOrdemNaoRecursivo ()
     {
-        if (no == null) return;
+        if (raiz == null) return;
 
-        while (no.esquerdo != null)
+        Stack<No> pilha = new Stack<No>();
+        pilha.push(raiz);
+
+        while(!pilha.isEmpty())
         {
-            System.out.println(no);
-        };
+            No atual = pilha.pop();
+            System.out.println(atual.valor + " ");
+
+            if (atual.direito != null) pilha.push(atual.direito);
+            if (atual.esquerdo != null) pilha.push(atual.esquerdo);
+        }
+
+
     };
 
     public void emOrdemRecursivo (No no)
@@ -46,7 +57,7 @@ public class Arvore
         if (no == null) return;
 
         preOrdemRecursivo(no.esquerdo);
-        System.out.println(no);
+        System.out.println(no.valor);
         preOrdemRecursivo(no.direito);
     };
 
@@ -56,7 +67,7 @@ public class Arvore
 
         posOrdemRecursivo(no.esquerdo);
         posOrdemRecursivo(no.direito);
-        System.out.println(no);
+        System.out.println(no.valor);
     };
 
     public void emNivelRecursivo ()
@@ -78,7 +89,7 @@ public class Arvore
 
         if (nivel == 0)
         {
-            System.out.println(no.valor + " ");
+            System.out.print(no.valor + " ");
         }
         else
         {
