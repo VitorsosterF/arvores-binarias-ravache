@@ -10,7 +10,13 @@ public class Main {
 
         System.out.println("Percorrendo por nível:");
         arvore.emNivelRecursivo();
-        System.out.println("Percorrendo pré-ordem:");
+        System.out.println("\nPercorrendo pré-ordem:");
+        arvore.preOrdemRecursivo(arvore.raiz);
+        arvore.preOrdemNaoRecursivo();
+        System.out.println("\nPercorrendo em ordem:");
+        arvore.emOrdemRecursivo(arvore.raiz);
+        arvore.emOrdemNaoRecursivo();
+        System.out.println("\nPercorrendo pós-ordem:");
         arvore.preOrdemRecursivo(arvore.raiz);
         arvore.preOrdemNaoRecursivo();
 
