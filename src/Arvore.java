@@ -61,6 +61,26 @@ public class Arvore
         preOrdemRecursivo(no.direito);
     };
 
+    public void emOrdemNaoRecursivo ()
+    {
+        if (raiz == null) return;
+
+        Stack<No> pilha = new Stack<>();
+        No atual = raiz;
+
+        while (atual != null || !pilha.isEmpty()) {
+            while (atual != null) {
+                pilha.push(atual);
+                atual = atual.esquerdo;
+            }
+
+            atual = pilha.pop();
+            System.out.print(atual.valor + " ");
+
+            atual = atual.direito;
+        }
+    }
+
     public void posOrdemRecursivo (No no)
     {
         if (no == null) return;
