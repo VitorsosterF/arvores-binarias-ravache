@@ -23,7 +23,28 @@ public class Arvore
         return 1 + contarNosRecursivo(no.esquerdo) + contarNosRecursivo(no.direito);
     }
 
+    public int contarNosIterativo() {
+        if (raiz == null) return 0;
 
+        Stack<No> pilha = new Stack<>();
+        pilha.push(raiz);
+
+        int contador = 0;
+
+        while (!pilha.isEmpty()) {
+            No atual = pilha.pop();
+            contador++;
+
+            if (atual.direito != null) {
+                pilha.push(atual.direito);
+            }
+            if (atual.esquerdo != null) {
+                pilha.push(atual.esquerdo);
+            }
+        }
+
+        return contador;
+    }
 
     public int contarFolhaNaoRecursivo(No no)
     {
