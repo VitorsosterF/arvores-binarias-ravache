@@ -1,3 +1,4 @@
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class Arvore
@@ -23,7 +24,7 @@ public class Arvore
         return 1 + contarNosRecursivo(no.esquerdo) + contarNosRecursivo(no.direito);
     }
 
-    public int contarNosIterativo() {
+    public int contarNosNaoRecursivo() {
         if (raiz == null) return 0;
 
         Stack<No> pilha = new Stack<>();
@@ -41,6 +42,27 @@ public class Arvore
             if (atual.esquerdo != null) {
                 pilha.push(atual.esquerdo);
             }
+        }
+
+        return contador;
+    }
+
+    public int contarNosComFila(No raiz)
+    {
+        if (raiz == null) return 0;
+
+        LinkedList<No> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        int contador = 0;
+
+        while (!fila.isEmpty())
+        {
+            No atual = fila.pop();
+            contador++;
+
+            if(atual.esquerdo != null) fila.add(atual.esquerdo);
+            if(atual.direito != null) fila.add(atual.direito);
         }
 
         return contador;
