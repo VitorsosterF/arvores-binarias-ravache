@@ -23,6 +23,24 @@ public class Arvore
         return 1 + contarNosRecursivo(no.esquerdo) + contarNosRecursivo(no.direito);
     }
 
+    public int contarFolhaNaoRecursivo(No no)
+    {
+        if (no == null) return 0;
+
+        return 0;
+    }
+
+    public int contarFolhasRecursivo(No no) {
+        if (no == null) return 0;
+
+        if (no.esquerdo == null && no.direito == null) {
+            return 1;
+        }
+
+        return contarFolhasRecursivo(no.esquerdo) + contarFolhasRecursivo(no.direito);
+    }
+
+
     public void preOrdemRecursivo(No no)
     {
         if (no == null) return;
@@ -119,10 +137,13 @@ public class Arvore
         {
             percorrerNivel(raiz, i);
         }
-
-
-
     };
+
+    public void emNivelSemRecursao ()
+    {
+        if (raiz == null) return;
+    }
+
 
     private void percorrerNivel(No no, int nivel)
     {

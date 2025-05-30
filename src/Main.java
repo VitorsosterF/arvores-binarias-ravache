@@ -19,6 +19,8 @@ public class Main {
         System.out.println("\nPercorrendo pós-ordem:");
         arvore.preOrdemRecursivo(arvore.raiz);
         arvore.preOrdemNaoRecursivo();
+        System.out.println("\nContando os nós folha:");
+        System.out.println(arvore.contarFolhasRecursivo(arvore.raiz));
 
     }
 }
