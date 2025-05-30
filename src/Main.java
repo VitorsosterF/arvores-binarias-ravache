@@ -21,6 +21,7 @@ public class Main {
         arvore.preOrdemNaoRecursivo();
         System.out.println("\nContando os nós folha:");
         System.out.println(arvore.contarFolhasRecursivo(arvore.raiz));
+        System.out.println(arvore.contarFolhasNaoRecursivo());
 
     }
 }
