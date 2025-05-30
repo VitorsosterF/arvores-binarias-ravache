@@ -1,4 +1,5 @@
 import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Arvore
@@ -72,6 +73,19 @@ public class Arvore
     {
         if (no == null) return 0;
 
+        Queue<No> fila = new LinkedList<>();
+        fila.add(raiz);
+
+        int folhas = 0;
+
+        while(!fila.isEmpty())
+        {
+            No atual = fila.poll();
+            if (atual.direito == null && atual.esquerdo == null) folhas++;
+
+            if (atual.esquerdo != null) fila.add(atual.esquerdo);
+            if (atual.direito != null) fila.add(atual.direito);
+        }
         return 0;
     }
 
