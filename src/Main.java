@@ -23,5 +23,27 @@ public class Main {
         System.out.println(arvore.contarFolhasRecursivo(arvore.raiz));
         System.out.println(arvore.contarFolhasNaoRecursivo());
 
+        ArvoreAVL arvoreavl = new ArvoreAVL();
+
+        System.out.println("Inserindo elementos...");
+        arvoreavl.inserir(30);
+        arvoreavl.inserir(20);
+        arvoreavl.inserir(40);
+        arvoreavl.inserir(10);
+        arvoreavl.inserir(25);
+        arvoreavl.inserir(50);
+        arvoreavl.inserir(5);
+
+        System.out.println("\nÁrvore em ordem (in-order):");
+        arvoreavl.imprimir();
+
+        System.out.println("\nRemovendo elemento 10...");
+        arvoreavl.remover(10);
+
+        System.out.println("Removendo elemento 30...");
+        arvoreavl.remover(30);
+
+        System.out.println("\nÁrvore após remoções:");
+        arvoreavl.imprimir();
     }
 }

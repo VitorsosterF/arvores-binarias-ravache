@@ -7,6 +7,11 @@ public class ArvoreAVL
         raiz = inserir (raiz, valor);
     }
 
+    public void remover (int valor)
+    {
+        remover (valor);
+    }
+
     private NoAVL inserir (NoAVL no, int valor)
     {
         if (no == null) return new NoAVL(valor);
@@ -149,6 +154,20 @@ public class ArvoreAVL
     {
         return(no == null) ? 0 : altura(no.esquerdo) - altura(no.direito);
     }
+
+    public void imprimir() {
+        imprimirEmOrdem(raiz);
+        System.out.println();
+    }
+
+    private void imprimirEmOrdem(NoAVL no) {
+        if (no != null) {
+            imprimirEmOrdem(no.esquerdo);
+            System.out.print(no.valor + " ");
+            imprimirEmOrdem(no.direito);
+        }
+    }
+
 
 
 }
