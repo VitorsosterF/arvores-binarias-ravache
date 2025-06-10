@@ -1,6 +1,6 @@
 public class ArvoreAVL
 {
-    private NoAVL raiz;
+    public NoAVL raiz;
 
     public void inserir(int valor)
     {
@@ -9,10 +9,10 @@ public class ArvoreAVL
 
     public void remover (int valor)
     {
-        remover (valor);
+        remover (raiz, valor);
     }
 
-    private NoAVL inserir (NoAVL no, int valor)
+    public NoAVL inserir (NoAVL no, int valor)
     {
         if (no == null) return new NoAVL(valor);
 

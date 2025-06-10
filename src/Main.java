@@ -11,28 +11,25 @@ public class Main {
         System.out.println("Percorrendo por nível:");
         arvore.emNivelRecursivo();
         System.out.println("\nPercorrendo pré-ordem:");
-        arvore.preOrdemRecursivo(arvore.raiz);
         arvore.preOrdemNaoRecursivo();
         System.out.println("\nPercorrendo em ordem:");
-        arvore.emOrdemRecursivo(arvore.raiz);
         arvore.emOrdemNaoRecursivo();
         System.out.println("\nPercorrendo pós-ordem:");
-        arvore.preOrdemRecursivo(arvore.raiz);
         arvore.preOrdemNaoRecursivo();
         System.out.println("\nContando os nós folha:");
         System.out.println(arvore.contarFolhasRecursivo(arvore.raiz));
         System.out.println(arvore.contarFolhasNaoRecursivo());
 
         ArvoreAVL arvoreavl = new ArvoreAVL();
+        System.out.println("Agora com a árvoreAVL");
+
+        int[] chaves = {10, 20, 30, 40, 50, 25};
 
         System.out.println("Inserindo elementos...");
-        arvoreavl.inserir(30);
-        arvoreavl.inserir(20);
-        arvoreavl.inserir(40);
-        arvoreavl.inserir(10);
-        arvoreavl.inserir(25);
-        arvoreavl.inserir(50);
-        arvoreavl.inserir(5);
+        for (int chave : chaves)
+        {
+            arvoreavl.raiz = arvoreavl.inserir(arvoreavl.raiz, chave);
+        }
 
         System.out.println("\nÁrvore em ordem (in-order):");
         arvoreavl.imprimir();
