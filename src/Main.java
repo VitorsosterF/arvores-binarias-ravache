@@ -1,5 +1,16 @@
 public class Main {
     public static void main(String[] args) {
+        //criação da árvore e definição de valores
+        No raiz = new No(10);
+        raiz.esquerdo = new No(1);
+        raiz.direito = new No(12);
+
+        //isso retornará falso
+        System.out.println("Raiz é folha: " + raiz.ehfolha());
+
+        //já isso retornará verdadeiro
+        System.out.println("Filho esquerdo é folha: ");
+
         Arvore arvore = new Arvore();
         arvore.raiz = new No(1);
         arvore.raiz.esquerdo = new No(2);
@@ -42,5 +53,6 @@ public class Main {
 
         System.out.println("\nÁrvore após remoções:");
         arvoreavl.imprimir();
+
     }
 }
