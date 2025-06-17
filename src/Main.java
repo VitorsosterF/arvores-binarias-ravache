@@ -54,5 +54,21 @@ public class Main {
         System.out.println("\nÁrvore após remoções:");
         arvoreavl.imprimir();
 
+        ArvoreRedBlack arvoreRB = new ArvoreRedBlack();
+
+        int[] valores = {10, 20, 30, 15, 5, 25};
+        for (int valor : valores)
+        {
+            arvoreRB.inserirHelper(valor);
+        }
+
+        System.out.println("Árvore após inserções (in-order): ");
+        arvoreRB.emOrdem();
+
+        arvoreRB.delete(10);
+        arvoreRB.delete(10);
+
+        System.out.println("Árvore após remoções: ");
+        arvoreRB.emOrdem();
     }
 }
