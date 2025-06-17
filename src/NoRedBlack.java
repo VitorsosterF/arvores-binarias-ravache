@@ -1,13 +1,13 @@
 public class NoRedBlack
 {
-    int valor, altura;
+    int valor;
     Cor cor;
-    NoAVL esquerdo, direito;
+    NoRedBlack esquerdo, direito, pai;
 
-    public NoRedBlack(int valor)
+    public NoRedBlack(int valor, Cor cor)
     {
         this.valor = valor;
-        altura = 1;
+        this.cor = cor;
     }
 }
 
